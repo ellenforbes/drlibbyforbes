@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr Libby Forbes - Paediatric Allergist and Immunologist</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-navy: #001242;
+            --ocean-blue: #0094c6;
+            --white: #ffffff;
+            --baltic-blue: #005e7c;
+            --berry-blush: #a4508b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--deep-navy);
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--baltic-blue) 100%);
+            padding: 10px;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 20px;
+        }
+
+        /* Banner Section */
+        .banner {
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .banner h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .banner h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .banner p {
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        .photo-section {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--berry-blush) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blurb-section {
+            flex: 2;
+            min-width: 300px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            padding-right: 20px;
+        }
+
+        .blurb-section p {
+            margin-bottom: 20px;
+            color: var(--deep-navy);
+        }
+
+        .expertise-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-top: 2px solid rgba(0, 148, 198, 0.2);
+        }
+
+        .expertise-section > p {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .allergies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .blurb-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .blurb-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .blurb-section li:before {
+            content: "•";
+            color: var(--ocean-blue);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .button-section, .location-section {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .button-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .book-button {
+            display: inline-block;
+            width: 100%;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--baltic-blue) 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 148, 198, 0.3);
+        }
+
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 148, 198, 0.4);
+        }
+
+        .location-section h3 {
+            color: var(--deep-navy);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.95em;
+        }
+
+        .footer p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Desktop Layout */
+        @media (min-width: 768px) {
+            .content-wrapper {
+                flex-wrap: nowrap;
+            }
+
+            .photo-section {
+                flex: 0 0 33.333%;
+            }
+
+            .blurb-section {
+                flex: 0 0 66.667%;
+            }
+
+            .bottom-section {
+                flex-wrap: nowrap;
+            }
+
+            .button-section, .location-section {
+                flex: 0 0 50%;
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 767px) {
+            .banner h1 {
+                font-size: 2em;
+            }
+
+            .banner h2 {
+                font-size: 1.2em;
+            }
+
+            .book-button {
+                font-size: 1.1em;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Banner Section -->
+        <div class="banner">
+            <h1>Dr Libby Forbes</h1>
+            <h2>Paediatric Allergist and Immunologist</h2>
+            <p>MBSc FRGS</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container">
+        <div class="content-wrapper">
+            <!-- Photo Section -->
+            <div class="photo-section">
+                <div class="photo-placeholder">
+                    <img src="ProfilePhoto.jpg" alt="Dr Libby Forbes">
+                </div>
+            </div>
+
+            <!-- Blurb Section -->
+            <div class="blurb-section">
+                <p>Libby is a Brisbane based paediatric allergist and a mum of two young children, bringing both clinical expertise and real-world parenting experience to every consultation. She understands firsthand how stressful and overwhelming childhood allergies can be for families, and she prioritises creating a calm, supportive environment where children and parents feel genuinely heard.</p>
+
+                <p>Appointments are unrushed and highly interactive, with a strong focus on building rapport with your child and working closely with parents. A comprehensive medical, dietary and family history is always taken to fully understand each child's unique allergy profile, triggers, and day-to-day challenges. Education and reassurance are central to her approach, ensuring parents leave with clear explanations, practical management plans, and confidence in next steps. With a compassionate, family-centred approach, she works alongside parents to help children stay safe, thrive, and enjoy everyday life as fully as possible.</p>
+            </div>
+        </div>
+
+        <!-- Expertise Section (Full Width) -->
+        <div class="expertise-section">
+            <p>Libby has extensive experience diagnosing, consulting on and managing a wide range of childhood allergies, including:</p>
+
+            <div class="allergies-grid">
+                <ul>
+                    <li>Peanut and tree nut allergies</li>
+                    <li>Cow's milk allergy and lactose intolerance</li>
+                    <li>Egg allergy</li>
+                </ul>
+                <ul>
+                    <li>Wheat and other food allergies</li>
+                    <li>Multiple food allergies</li>
+                    <li>Eczema-associated food sensitivities</li>
+                </ul>
+                <ul>
+                    <li>Anaphylaxis risk assessment and management</li>
+                    <li>Allergy testing and interpretation</li>
+                    <li>Development of personalised allergy action plans</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Button Section -->
+            <div class="button-section">
+                <a href="#" class="book-button">Book an Appointment</a>
+            </div>
+
+            <!-- Location Section -->
+            <div class="location-section">
+                <h3>Current Practice Location</h3>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Dr Libby Forbes Registered Business and Medical Practicioner</p>
+    </div>
+    </div>
+
+    <script>
+        // Initialize the map (Brisbane coordinates as example)
+        const map = L.map('map').setView([-27.4698, 153.0251], 13);
+
+        // Add grayscale OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            className: 'map-tiles'
+        }).addTo(map);
+
+        // Add custom CSS for grayscale
+        const style = document.createElement('style');
+        style.textContent = '.map-tiles { filter: grayscale(100%); }';
+        document.head.appendChild(style);
+
+        // Add a marker
+        const marker = L.marker([-27.4698, 153.0251]).addTo(map);
+        marker.bindPopup('<b>Dr Libby Forbes</b><br>Practice Location').openPopup();
+    </script>
+</body>
+</html>
