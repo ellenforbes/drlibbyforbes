@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +25,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--deep-navy);
-            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--baltic-blue) 100%);
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--baltic-blue) 50%, var(--deep-navy) 100%);
             padding: 10px;
             min-height: 100vh;
         }
@@ -55,18 +54,21 @@
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .banner h2 {
             font-size: 1.5em;
             font-weight: 400;
             margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .banner p {
             font-size: 1.1em;
             letter-spacing: 2px;
             opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* Content Section */
@@ -121,12 +123,30 @@
             padding-top: 30px;
             padding-left: 20px;
             padding-right: 20px;
-            border-top: 2px solid rgba(0, 148, 198, 0.2);
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--ocean-blue), var(--berry-blush), var(--ocean-blue)) 1;
+            position: relative;
+        }
+
+        .expertise-section::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--ocean-blue) 20%, 
+                var(--berry-blush) 50%, 
+                var(--ocean-blue) 80%, 
+                transparent 100%);
         }
 
         .expertise-section > p {
             margin-bottom: 20px;
             font-weight: 500;
+            color: var(--baltic-blue);
         }
 
         .allergies-grid {
@@ -149,7 +169,7 @@
 
         .blurb-section li:before {
             content: "•";
-            color: var(--ocean-blue);
+            color: var(--berry-blush);
             font-weight: bold;
             font-size: 1.5em;
             position: absolute;
@@ -180,26 +200,61 @@
             display: inline-block;
             width: 100%;
             padding: 18px 40px;
-            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--baltic-blue) 100%);
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--berry-blush) 100%);
             color: var(--white);
             text-decoration: none;
             border-radius: 8px;
             font-size: 1.3em;
             font-weight: 600;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 148, 198, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(164, 80, 139, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--berry-blush) 0%, var(--ocean-blue) 100%);
+            transition: left 0.3s ease;
+        }
+
+        .book-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-button:hover::before {
+            left: 0;
         }
 
         .book-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 148, 198, 0.4);
+            box-shadow: 0 6px 20px rgba(164, 80, 139, 0.4);
         }
 
         .location-section h3 {
-            color: var(--deep-navy);
+            color: var(--baltic-blue);
             margin-bottom: 15px;
             font-size: 1.3em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .location-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ocean-blue), var(--berry-blush));
+            border-radius: 2px;
         }
 
         #map {
@@ -316,7 +371,7 @@
         <div class="bottom-section">
             <!-- Button Section -->
             <div class="button-section">
-                <a href="#" class="book-button">Book an Appointment</a>
+                <a href="#" class="book-button"><span>Book an Appointment</span></a>
             </div>
 
             <!-- Location Section -->
@@ -329,7 +384,7 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>Dr Libby Forbes Registered Business and Medical Practicioner</p>
+        <p>Dr Libby Forbes Registered Business and Medical Practioner</p>
     </div>
     </div>
 
