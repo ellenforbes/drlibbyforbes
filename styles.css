@@ -624,11 +624,7 @@ h3::after {
 }
 
 
-
-/* ============================================
-   APPOINTMENT POPUP MODAL STYLES
-   Add this to your styles.css file
-   ============================================ */
+/* ===== APPOINTMENT MODAL ===== */
 
 /* Modal Background Overlay */
 .appointment-modal {
@@ -755,15 +751,107 @@ h3::after {
     font-size: 16px;
 }
 
-/* Mobile Responsiveness */
+/* ===== LOCATION MODAL ===== */
+
+/* Location Modal Background */
+.location-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Location Modal Content Box */
+.location-modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+/* Location Modal Close Button */
+.location-modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.location-modal-close:hover,
+.location-modal-close:focus {
+    color: #333;
+}
+
+/* Location Modal Header */
+.location-modal-content h2 {
+    margin: 0 0 10px 0;
+    color: #2c5f8d;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.location-modal-content > p {
+    margin: 0 0 20px 0;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Map Container */
+.location-map {
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+}
+
+/* Location Info */
+.location-info {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+}
+
+.location-info p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 15px;
+}
+
+.location-info strong {
+    color: #2c5f8d;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
 @media (max-width: 600px) {
-    .appointment-modal-content {
+    .appointment-modal-content,
+    .location-modal-content {
         margin: 20% auto;
         padding: 30px 20px;
         width: 95%;
     }
 
-    .appointment-modal-content h2 {
+    .appointment-modal-content h2,
+    .location-modal-content h2 {
         font-size: 24px;
     }
 
@@ -783,57 +871,28 @@ h3::after {
     .appointment-details p {
         font-size: 14px;
     }
-}
 
+    .location-map {
+        height: 250px;
+    }
+
+    .location-info {
+        padding: 15px;
+    }
+
+    .location-info p {
+        font-size: 14px;
+    }
+}
 
 /* Tablet Responsiveness */
 @media (min-width: 601px) and (max-width: 900px) {
-    .appointment-modal-content {
+    .appointment-modal-content,
+    .location-modal-content {
         margin: 15% auto;
     }
-}
 
-
-/* Desktop Layout */
-@media (min-width: 768px) {
-    .content-wrapper {
-        flex-wrap: nowrap;
+    .location-map {
+        height: 300px;
     }
-
-    .photo-section {
-        flex: 0 0 33.333%;
-    }
-
-    .blurb-section {
-        flex: 0 0 66.667%;
-    }
-
-    .bottom-section {
-        flex-wrap: nowrap;
-    }
-
-    .button-section, .location-section {
-        flex: 0 0 50%;
-    }
-}
-
-/* Mobile Adjustments */
-@media (max-width: 767px) {
-    .banner h1 {
-        font-size: 2em;
-    }
-
-    .banner h2 {
-        font-size: 1.2em;
-    }
-
-    .btn-primary {
-        font-size: 1.1em;
-        padding: 15px 30px;
-    }
-
-    .content-section h3 {
-        font-size: 1.6em;
-    }
-
 }

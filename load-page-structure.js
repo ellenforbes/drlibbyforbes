@@ -1,4 +1,4 @@
-// Universal Template Loader - Updated with correct links and appointment popup
+// Universal Template Loader - Updated with appointment and location popups
 (function() {
     // Extract the main content section before replacing body
     const mainContent = document.querySelector('.container');
@@ -33,7 +33,7 @@
             </div>
             <a href="publications.html" class="mobile-nav-link">Publications</a>
             <a href="#" class="mobile-nav-link book-appointment-trigger">Book Appointment</a>
-            <a href="location.html" class="mobile-nav-link">Location</a>
+            <a href="#" class="mobile-nav-link location-trigger">Location</a>
         </div>
     </div>
 
@@ -68,7 +68,7 @@
             </div>
             <a href="publications.html" class="nav-link">Publications</a>
             <a href="#" class="nav-link book-appointment-trigger">Book Appointment</a>
-            <a href="location.html" class="nav-link">Location</a>
+            <a href="#" class="nav-link location-trigger">Location</a>
         </nav>
 
         <!-- Main Content -->
@@ -87,25 +87,36 @@
         <div class="appointment-modal-content">
             <span class="appointment-modal-close">&times;</span>
             <h2>Book an Appointment</h2>
-            <p>Please check back on the 15th of February to schedule an appointment:</p>
+            <p>Contact Dr Libby Forbes to schedule your appointment:</p>
             
             <div class="appointment-options">
-                <a href="mailto:notyetonline@gmail.com" class="appointment-option">
+                <a href="mailto:libby.forbes@gmail.com" class="appointment-option">
                     <div class="appointment-icon">✉️</div>
                     <div class="appointment-details">
                         <h3>Email</h3>
-                        <p>notyetonline@gmail.com</p>
+                        <p>libby.forbes@gmail.com</p>
                     </div>
                 </a>
                 
-                <a href="tel:+61400000000" class="appointment-option">
+                <a href="tel:+61423145322" class="appointment-option">
                     <div class="appointment-icon">📞</div>
                     <div class="appointment-details">
                         <h3>Call</h3>
-                        <p>0400 123 123</p>
+                        <p>0423 145 322</p>
                     </div>
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Location Popup Modal -->
+    <div id="locationModal" class="location-modal">
+        <div class="location-modal-content">
+            <span class="location-modal-close">&times;</span>
+            <h2>Practice Location</h2>
+            <p>Dr Libby Forbes - Brisbane, QLD</p>
+            
+            <div id="locationMap" class="location-map"></div>
         </div>
     </div>
     `;
@@ -113,41 +124,110 @@
     // Replace body content with template
     document.body.innerHTML = template;
 
-    // Add appointment popup functionality
-    const modal = document.getElementById('appointmentModal');
-    const triggers = document.querySelectorAll('.book-appointment-trigger, .btn-primary');
-    const closeBtn = document.querySelector('.appointment-modal-close');
+    // ===== APPOINTMENT POPUP FUNCTIONALITY =====
+    const appointmentModal = document.getElementById('appointmentModal');
+    const appointmentTriggers = document.querySelectorAll('.book-appointment-trigger, .btn-primary');
+    const appointmentCloseBtn = document.querySelector('.appointment-modal-close');
 
-    // Open modal when clicking any book appointment button
-    triggers.forEach(trigger => {
+    // Open appointment modal
+    appointmentTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(e) {
             e.preventDefault();
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            appointmentModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
     });
 
-    // Close modal when clicking X
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
+    // Close appointment modal when clicking X
+    if (appointmentCloseBtn) {
+        appointmentCloseBtn.addEventListener('click', function() {
+            appointmentModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
     }
 
-    // Close modal when clicking outside
+    // Close appointment modal when clicking outside
     window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
+        if (e.target === appointmentModal) {
+            appointmentModal.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+        if (e.target === locationModal) {
+            locationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (locationMapInstance) {
+                locationMapInstance.remove();
+                locationMapInstance = null;
+            }
         }
     });
 
-    // Close modal with Escape key
+    // Close modals with Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+        if (e.key === 'Escape') {
+            if (appointmentModal.style.display === 'block') {
+                appointmentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (locationModal.style.display === 'block') {
+                locationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (locationMapInstance) {
+                    locationMapInstance.remove();
+                    locationMapInstance = null;
+                }
+            }
         }
     });
+
+    // ===== LOCATION POPUP FUNCTIONALITY =====
+    const locationModal = document.getElementById('locationModal');
+    const locationTriggers = document.querySelectorAll('.location-trigger');
+    const locationCloseBtn = document.querySelector('.location-modal-close');
+    let locationMapInstance = null;
+
+    // Open location modal and initialize map
+    locationTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            locationModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize map after a short delay to ensure the container is visible
+            setTimeout(function() {
+                if (!locationMapInstance) {
+                    const lat = -27.4645227;
+                    const lng = 153.025184;
+                    
+                    locationMapInstance = L.map('locationMap').setView([lat, lng], 15);
+                    
+                    // Add CartoDB light tiles
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                        attribution: '© OpenStreetMap contributors © CARTO',
+                        subdomains: 'abcd',
+                        maxZoom: 20
+                    }).addTo(locationMapInstance);
+                    
+                    // Add marker
+                    const marker = L.marker([lat, lng]).addTo(locationMapInstance);
+                    
+                    const mapsIcon = `<a href="https://www.google.com/maps?q=${lat},${lng}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">Open in Google Maps</a>`;
+                    
+                    marker.bindPopup(`<b>Dr Libby Forbes</b><br>${mapsIcon}`).openPopup();
+                }
+            }, 100);
+        });
+    });
+
+    // Close location modal when clicking X
+    if (locationCloseBtn) {
+        locationCloseBtn.addEventListener('click', function() {
+            locationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (locationMapInstance) {
+                locationMapInstance.remove();
+                locationMapInstance = null;
+            }
+        });
+    }
 })();
