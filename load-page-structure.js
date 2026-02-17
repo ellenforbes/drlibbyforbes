@@ -87,22 +87,22 @@
         <div class="appointment-modal-content">
             <span class="appointment-modal-close">&times;</span>
             <h2>Book an Appointment</h2>
-            <p>Please check back after the 15th of February to schedule and appointment</p>
+            <p>Dr Libby is available for appointments on Thursdays.</p>
             
             <div class="appointment-options">
-                <a href="mailto:ellenmarieforbes@gmail.com" class="appointment-option">
+                <a href="mailto:reception@paedix.au" class="appointment-option">
                     <div class="appointment-icon">✉️</div>
                     <div class="appointment-details">
                         <h3>Email</h3>
-                        <p>testdontemail@gmail.com</p>
+                        <p>reception@paedix.au</p>
                     </div>
                 </a>
                 
-                <a href="tel:+61498468531" class="appointment-option">
+                <a href="tel:+61721114100" class="appointment-option">
                     <div class="appointment-icon">📞</div>
                     <div class="appointment-details">
                         <h3>Call</h3>
-                        <p>0400 123 123</p>
+                        <p>07 2111 4100</p>
                     </div>
                 </a>
             </div>
