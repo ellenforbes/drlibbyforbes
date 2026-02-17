@@ -58,8 +58,8 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     maxZoom: 20
 }).addTo(map);
 
-const lat = -27.4645227;
-const lng = 153.025184;
+const lat = -27.4645274;
+const lng = 153.0251978;
 
 const marker = L.marker([lat, lng]).addTo(map);
 

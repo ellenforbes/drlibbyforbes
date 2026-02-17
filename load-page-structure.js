@@ -196,8 +196,8 @@
             // Initialize map after a short delay to ensure the container is visible
             setTimeout(function() {
                 if (!locationMapInstance) {
-                    const lat = -27.4645227;
-                    const lng = 153.025184;
+                    const lat = -27.4645274;
+                    const lng = 153.0251978;
                     
                     locationMapInstance = L.map('locationMap').setView([lat, lng], 15);
                     
