@@ -3,30 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr Libby Forbes - Paediatric Allergist and Immunologist</title>
+    <title>Egg Allergy - Dr Libby Forbes - Paediatric Allergist and Immunologist</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    <!-- Main Content -->
     <div class="container">
-        <!-- Content Section -->
         <div class="content-section">
-            <h3>Why see specialist paediatric allergist over my GP or a paediatrician?</h3>
-            <br>
-            <p>gps are generalists.</p>
-            <p>To discuss more, you can book with a paediatric allergist in Brisbane today.</p>
+
+            <h3>Egg Allergy</h3>
+
+            <div class="quick-facts">
+                <div class="fact-card">
+                    <div class="fact-number">10%</div>
+                    <div class="fact-label">of Australian infants at 12 months</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">Most</div>
+                    <div class="fact-label">children outgrow egg allergy</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">1%</div>
+                    <div class="fact-label">still affected at 6 years of age</div>
+                </div>
+            </div>
+
+            <div class="article-section">
+                <h2>What is egg allergy?</h2>
+                <p>Egg allergy is an allergic reaction to the proteins found in egg whites. Egg allergy is the most common food allergy in infants, occurring in almost 10% of infants in Australia at 12 months of age. Fortunately, most children outgrow their egg allergy, with only 1% of children having an egg allergy at 6 years of age. Many children with egg allergy can tolerate egg cooked in baked goods.</p>
+            </div>
+
+            <div class="article-section">
+                <h2>When should I first give my child egg?</h2>
+                <p>Egg should be introduced along with other common allergens once your baby is ready to start solids. One idea is to mix a small amount of hard-boiled egg into a puree that your baby already enjoys.</p>
+            </div>
+
+            <div class="article-section">
+                <h2>What are the signs and symptoms of egg allergy?</h2>
+                <p>While most cases of egg allergy are mild, some children with egg allergy can have anaphylaxis. Allergic reactions to egg occur within minutes of eating egg, though some may take up to 1-2 hours. Allergy to egg is reproducible — symptoms occur every time your child eats the food.</p>
+
+                <div class="grouped-list">
+                    <div class="grouped-list-title">Common symptoms</div>
+                    <ul class="grouped-list-items">
+                        <li>Hives or welts</li>
+                        <li>Redness of skin</li>
+                        <li>Vomiting</li>
+                        <li>Swelling of the face, eyes, or hands</li>
+                    </ul>
+                </div>
+
+                <div class="grouped-list bold">
+                    <div class="grouped-list-title">&#9888; Anaphylaxis symptoms — call emergency services immediately</div>
+                    <ul class="grouped-list-items">
+                        <li>Breathing difficulties, cough, or wheeze</li>
+                        <li>Difficulty swallowing</li>
+                        <li>Light-headedness, lethargy, or loss of consciousness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-section">
+                <h2>My child gets a rash when raw egg touches them. Does that mean they are allergic?</h2>
+                <p class="answer-highlight">No.</p>
+                <p>Skin reactions like hives or welts from egg contact are very common. Many children who develop a localised skin rash can still eat egg without signs or symptoms of allergy.</p>
+            </div>
+
+            <div class="article-section">
+                <h2>How is egg allergy diagnosed?</h2>
+                <p>Egg allergy is diagnosed based on the history of exposure to egg and symptoms that occurred. Sometimes your doctor may suggest testing such as a skin prick test or blood test.</p>
+            </div>
+
+            <div class="article-section">
+                <h2>Can I get my child tested for egg allergy before they eat egg?</h2>
+                <p>The best way to know if your child is allergic to egg or not is to try small amounts of well-cooked egg at home.</p>
+                <div class="article-callout warning">
+                    <p><strong>Important:</strong> If allergy testing is done prior to eating egg, it may result in a false positive test that could lead to unnecessary avoidance of egg in the diet.</p>
+                </div>
+            </div>
+
+            <div class="article-section">
+                <h2>What should I do if I suspect my child has an egg allergy?</h2>
+                <p>If you suspect your child has an egg allergy, see your GP. Your GP may refer you to an allergy specialist for assessment and management.</p>
+                <div class="article-callout">
+                    <p><strong>Your allergist</strong> will discuss the best way for your family to manage egg allergy in your child.</p>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Bottom Section -->
         <div class="bottom-section">
-            <!-- Button Section -->
             <div class="button-section">
                 <a href="#" class="btn-primary"><span>Book an Appointment</span></a>
             </div>
-
-            <!-- Location Section -->
             <div class="location-section">
                 <h3>Current Practice Location</h3>
                 <div id="map"></div>
@@ -34,7 +104,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="load-page-structure.js"></script>
     <script src="script.js"></script>
 </body>

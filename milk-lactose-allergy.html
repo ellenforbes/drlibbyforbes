@@ -3,30 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr Libby Forbes - Paediatric Allergist and Immunologist</title>
+    <title>Cow's Milk Allergy & Lactose Intolerance - Dr Libby Forbes - Paediatric Allergist and Immunologist</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    <!-- Main Content -->
     <div class="container">
-        <!-- Content Section -->
         <div class="content-section">
-            <h3>Cow's milk allergy</h3>
-            <br>
-            <p>Tree nut allergies require careful risk management because exposure to even tiny amounts of tree nuts can trigger allergic reactions, including life‑threatening anaphylaxis, in sensitised individuals. According to the Australasian Society of Clinical Immunology and Allergy (ASCIA), the cornerstone of managing a confirmed tree nut allergy is strict avoidance of the specific nuts that cause reactions and education on recognising and responding to allergic symptoms. People with this allergy should work with their healthcare provider to develop and carry an ASCIA Action Plan for Anaphylaxis, which outlines personalised instructions for early recognition and emergency treatment, including when to use an adrenaline (epinephrine) auto‑injector. In addition to having an action plan, risk minimisation involves strategies such as reading ingredient labels diligently, communicating the allergy to food providers and caregivers, reducing risk of cross‑contact in food preparation, and ensuring environments such as schools or childcare services have appropriate allergy and emergency plans in place. These combined avoidance and preparedness measures help reduce the chance of accidental exposure and ensure prompt, effective responses if a reaction occurs.</p>
-            <p>To discuss more, you can book with a paediatric allergist in Brisbane today.</p>
+
+            <h3>Cow's Milk Allergy &amp; Lactose Intolerance</h3>
+
+            <!-- Tab navigation -->
+            <div class="content-tabs">
+                <button class="content-tab-btn active" onclick="showTab('ige', this)">IgE-Mediated Allergy</button>
+                <button class="content-tab-btn" onclick="showTab('nonige', this)">Non-IgE Allergy</button>
+                <button class="content-tab-btn" onclick="showTab('lactose', this)">Lactose Intolerance</button>
+            </div>
+
+            <!-- IgE-Mediated Tab -->
+            <div id="tab-ige" class="content-tab-panel active">
+
+                <div class="article-section">
+                    <h2>What is IgE-mediated cow's milk allergy?</h2>
+                    <p>Cow's milk allergy (or IgE-mediated cow's milk allergy) is an immediate allergic reaction to the proteins found in cow's milk. Approximately 2% of babies in Australia will have a cow's milk allergy. Cow's milk allergy can be tricky to manage as milk is found in many different foods.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>What are the signs and symptoms?</h2>
+                    <p>Signs and symptoms of IgE-mediated cow's milk protein allergy develop within minutes of exposure.</p>
+
+                    <div class="grouped-list">
+                        <div class="grouped-list-title">Common symptoms</div>
+                        <ul class="grouped-list-items">
+                            <li>Hives or welts</li>
+                            <li>Redness and swelling</li>
+                            <li>Itch</li>
+                            <li>Vomiting</li>
+                        </ul>
+                    </div>
+
+                    <div class="grouped-list bold">
+                        <div class="grouped-list-title">&#9888; Anaphylaxis symptoms — call emergency services immediately</div>
+                        <ul class="grouped-list-items">
+                            <li>Breathing difficulties, wheeze, or cough</li>
+                            <li>Difficulty swallowing</li>
+                            <li>Light-headedness, lethargy, or loss of consciousness</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top:12px;">IgE-mediated cow's milk protein allergy is reproducible — symptoms occur on each exposure.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>How is it diagnosed?</h2>
+                    <p>Any child with a suspicion of an immediate cow's milk allergy should be seen by a paediatric allergist for assessment and management.</p>
+                    <p>IgE-mediated cow's milk allergy is diagnosed based on a history of symptoms with exposure. Sometimes allergy testing such as skin prick testing or blood tests may be recommended by your doctor.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>How is it managed?</h2>
+                    <p>IgE-mediated cow's milk allergy is managed by avoiding cow's milk and having an Action Plan in place in case of accidental exposure. Non-dairy alternative milks and formulas should be used in place of cow's milk to ensure your child receives enough calcium in their diet.</p>
+                    <div class="article-callout warning">
+                        <p><strong>Important:</strong> Goat's milk should be avoided as it is very similar to cow's milk. Lactose-free products are <em>not</em> suitable for people with cow's milk protein allergy.</p>
+                    </div>
+                    <div class="article-callout" style="margin-top:12px;">
+                        <p><strong>Next step:</strong> If you suspect your child has a cow's milk allergy, talk to your GP about seeing a paediatric allergist.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Non-IgE Tab -->
+            <div id="tab-nonige" class="content-tab-panel">
+
+                <div class="difference-badge">
+                    <strong>How is this different?</strong>
+                    Non-IgE-mediated allergy is a gut-based allergy. Unlike IgE-mediated allergy, it cannot be detected by standard skin prick testing or blood tests.
+                </div>
+
+                <div class="article-section">
+                    <h2>What is non-IgE-mediated cow's milk allergy?</h2>
+                    <p>Non-IgE-mediated cow's milk allergy is a gut-based allergy. Cow's milk protein is the most common trigger of two related conditions: food protein-induced proctocolitis (affecting the large intestine) and food protein-induced enterocolitis (affecting the small bowel).</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>What are the two types and their symptoms?</h2>
+                    <div class="info-row">
+                        <div class="info-card">
+                            <div class="info-card-title">Proctocolitis</div>
+                            <p>Usually occurs in the first few weeks of life. Symptoms include frequent or watery bowel movements containing blood or mucus. Babies are typically growing well.</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Enterocolitis</div>
+                            <p>Symptoms include diarrhoea, abdominal pain, vomiting, poor weight gain, and growth concerns. Babies may often be unsettled and irritable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-section">
+                    <h2>How is it diagnosed?</h2>
+                    <p>Skin prick testing and blood tests are <strong>not useful</strong> in diagnosing non-IgE-mediated cow's milk allergy. If other causes have been excluded, a trial of removing cow's milk and reintroducing it once symptoms have resolved may be recommended.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>Will my child outgrow it?</h2>
+                    <p>Non-IgE-mediated cow's milk allergy usually resolves in infancy. Your allergist will explain how to reintroduce cow's milk into your child's diet as they grow older.</p>
+                    <div class="article-callout">
+                        <p><strong>Next step:</strong> If you suspect your child has a cow's milk allergy, talk to your GP about seeing a paediatric allergist.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Lactose Intolerance Tab -->
+            <div id="tab-lactose" class="content-tab-panel">
+
+                <div class="difference-badge">
+                    <strong>Not an allergy</strong>
+                    Lactose intolerance is different from cow's milk allergy. It is an intolerance to the sugar in cow's milk (lactose) — not an immune reaction to milk proteins.
+                </div>
+
+                <div class="article-section">
+                    <h2>What is lactose intolerance?</h2>
+                    <p>Lactose intolerance is an intolerance to the sugar in cow's milk, which is called lactose. When you eat lactose, an enzyme called lactase is needed to break it down into smaller sugars that can be absorbed by the gut. Some people stop making enough lactase to easily digest lactose. This can occur as you get older and is more common in certain populations.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>What are the symptoms?</h2>
+                    <div class="grouped-list">
+                        <div class="grouped-list-title">Symptoms of lactose intolerance</div>
+                        <ul class="grouped-list-items">
+                            <li>Bloating</li>
+                            <li>Diarrhoea</li>
+                            <li>Abdominal pain and cramping</li>
+                            <li>Nausea</li>
+                            <li>Gas</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top:14px;">Symptom severity may be related to how much lactose was consumed. <strong>There is no risk of developing anaphylaxis</strong> with lactose intolerance.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>How is it diagnosed?</h2>
+                    <p>Lactose intolerance cannot be diagnosed with skin prick testing or blood tests. Usually, reproducible symptoms following lactose consumption are enough to suggest the diagnosis.</p>
+                </div>
+
+                <div class="article-section">
+                    <h2>How is it managed?</h2>
+                    <p>Lactose intolerance can be managed by drinking and eating lactose-free dairy products, or by using lactase enzyme supplementation (i.e., Lacteeze tablets or drops). Usually, small amounts of lactose are tolerated.</p>
+                    <div class="article-callout">
+                        <p><strong>Good news:</strong> Children with lactose intolerance generally do not need to see an allergist.</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Bottom Section -->
         <div class="bottom-section">
-            <!-- Button Section -->
             <div class="button-section">
                 <a href="#" class="btn-primary"><span>Book an Appointment</span></a>
             </div>
-
-            <!-- Location Section -->
             <div class="location-section">
                 <h3>Current Practice Location</h3>
                 <div id="map"></div>
@@ -34,8 +172,15 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="load-page-structure.js"></script>
     <script src="script.js"></script>
+    <script>
+        function showTab(name, btn) {
+            document.querySelectorAll('.content-tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.content-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            btn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
