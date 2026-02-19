@@ -24,7 +24,7 @@
                     <a href="peanut-nut-allergy.html">Peanut and tree nut allergies</a>
                     <a href="milk-lactose-allergy.html">Cow's milk allergy</a>
                     <a href="egg-allergy.html">Egg allergy</a>
-                    <a href="baby-food-introduction-allergy.html">Allergen Introduction for Babies</a>
+                    <a href="baby-food-introduction-allergy.html">Allergen introduction for babies</a>
                     <a href="anaphylaxis-allergy-action-plan.html">Development of personalised allergy and anaphylaxis action plans</a>
                     <a href="allergy-testing.html">Allergy testing and interpretation</a>
                     <a href="eczema-food-sensitivity.html">Eczema</a>
@@ -59,7 +59,7 @@
                     <a href="peanut-nut-allergy.html">Peanut and tree nut allergies</a>
                     <a href="milk-lactose-allergy.html">Cow's milk allergy</a>
                     <a href="egg-allergy.html">Egg allergy</a>
-                    <a href="baby-food-introduction-allergy.html">Allergen Introduction for Babies</a>
+                    <a href="baby-food-introduction-allergy.html">Allergen introduction for babies</a>
                     <a href="allergy-testing.html">Allergy testing and interpretation</a>
                     <a href="anaphylaxis-allergy-action-plan.html">Development of personalised allergy and anaphylaxis action plans</a>
                     <a href="environmental-allergies-rhinitis-asthma.html">Environmental allergies including rhinitis and asthma</a>
