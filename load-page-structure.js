@@ -44,7 +44,7 @@
         <!-- Banner Section -->
         <div class="banner">
             <h2>Dr Libby Forbes</h2>
-            <h1>Paediatric Allergist and Immunologist</h1>
+            <h1>Paediatric Allergist and Immunologist – Brisbane</h1>
             <p>BSc/MBBS DCH MPhil FRACP FRCPA</p>
         </div>
 
@@ -78,7 +78,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p>Dr Libby Forbes Registered Business and Medical Practioner</p>
+            <p>Dr Libby Forbes – Registered Medical Practitioner, Brisbane</p>
         </div>
     </div>
 
