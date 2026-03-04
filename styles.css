@@ -41,14 +41,14 @@ body {
     margin-bottom: 0;
 }
 
-.banner h1 {
+.banner h2 {
     font-size: 2.5em;
     margin-bottom: 10px;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.banner h2 {
+.banner h1 {
     font-size: 1.5em;
     font-weight: 400;
     margin-bottom: 5px;
@@ -1269,4 +1269,5 @@ ol.grouped-list-items li::before {
 
 
 .program-link:hover { opacity: 0.85; }
+
 
