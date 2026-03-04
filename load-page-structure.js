@@ -43,8 +43,8 @@
     <div class="page-wrapper">
         <!-- Banner Section -->
         <div class="banner">
-            <h1>Dr Libby Forbes</h1>
-            <h2>Paediatric Allergist and Immunologist</h2>
+            <h2>Dr Libby Forbes</h2>
+            <h1>Paediatric Allergist and Immunologist</h1>
             <p>BSc/MBBS DCH MPhil FRACP FRCPA</p>
         </div>
 
