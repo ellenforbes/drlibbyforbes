@@ -3,6 +3,7 @@
     // Extract the main content section before replacing body
     const mainContent = document.querySelector('.container');
     const mainContentHTML = mainContent ? mainContent.innerHTML : '';
+    const isIndex = window.location.pathname === '/' || window.location.pathname.includes('index.html');
     
     const template = `
     <!-- Hamburger Menu Button -->
@@ -41,12 +42,13 @@
     <div class="drawer-overlay" id="drawerOverlay"></div>
 
     <div class="page-wrapper">
-        <!-- Banner Section -->
+        ${isIndex ? '' : `
         <div class="banner">
             <h2>Dr Libby Forbes</h2>
             <h1>Paediatric Allergist and Immunologist – Brisbane</h1>
             <p>BSc/MBBS DCH MPhil FRACP FRCPA</p>
         </div>
+        `}
 
         <!-- Navigation Bar -->
         <nav class="navbar">
