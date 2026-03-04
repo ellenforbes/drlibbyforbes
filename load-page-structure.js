@@ -3,6 +3,8 @@
     // Extract the main content section before replacing body
     const mainContent = document.querySelector('.container');
     const mainContentHTML = mainContent ? mainContent.innerHTML : '';
+    const hardcodedBanner = document.querySelector('.banner');
+    const bannerHTML = hardcodedBanner ? hardcodedBanner.outerHTML : '';
     const isIndex = window.location.pathname === '/' || window.location.pathname.includes('index.html');
     
     const template = `
@@ -42,7 +44,7 @@
     <div class="drawer-overlay" id="drawerOverlay"></div>
 
     <div class="page-wrapper">
-        ${isIndex ? '' : `
+        ${isIndex ? bannerHTML : `
         <div class="banner">
             <h2>Dr Libby Forbes</h2>
             <h1>Paediatric Allergist and Immunologist – Brisbane</h1>
