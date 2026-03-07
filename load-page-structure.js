@@ -18,7 +18,7 @@
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="mobile-drawer-content">
-            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="/" class="mobile-nav-link">Home</a>
             <a href="about-libby.html" class="mobile-nav-link">About</a>
             <div class="mobile-nav-dropdown" id="mobilePatientInfo">
                 <a href="#" class="mobile-nav-link">Patient Information</a>
@@ -54,7 +54,7 @@
 
         <!-- Navigation Bar -->
         <nav class="navbar">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="/" class="nav-link">Home</a>
             <a href="about-libby.html" class="nav-link">About</a>
             <div class="nav-dropdown">
                 <a href="#" class="nav-link">Patient Information</a>
